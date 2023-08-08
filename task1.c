@@ -1,25 +1,25 @@
 #include <stdio.h>
-int inputarray(int array, int n);
+
+void inputarray(int array[][1000], int n);
 
 int main() {
     int n; // matrix size
     scanf("%d", &n);
-    int array;
+    int array[1000][1000];
     inputarray(array, n);
     int m = 0;
     int result = 0;
-    for (n; n > 0; n--){
-        result = result + array[m][n];
+    for (int i = 0; i < n; i++) {           // для нахождения суммы использует 1 цикл
+        result += array[i][n - 1 - m];
         m++;
     }
     return printf("%d", result);
 }
 
-int inputarray(int array, int n) {
+void inputarray(int array[][1000], int n) { // ввод чисел без использования  цикла невозможно
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            scnaf("%d", array[i][j]);
+            scanf("%d", &array[i][j]);
         }
     }
-return array;
 }
